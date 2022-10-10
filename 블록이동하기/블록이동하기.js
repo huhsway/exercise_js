@@ -28,7 +28,7 @@ function solution (board) {
     }
   }
   
-  const getNextPosition = (left, right, board) => {
+  function getNextPosition (left, right, board){
     const result = [];
     const X = 1, Y = 0;
     const moves = [ [-1,0], [1, 0], [0,-1], [0,1] ];

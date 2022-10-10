@@ -31,7 +31,7 @@ let n = 3;
 let m = 2;
 let arr = [3, 6, 9];
  
-function solution(n, m, arr){
+function getPermutation(n, m, arr){
   let temp = Array.from({length: m}, ()=>0);
   let visited = Array.from({length: n}, ()=>0);
   let answer = [];
@@ -55,4 +55,4 @@ function solution(n, m, arr){
   return answer;
 }
 
-console.log(solution(n, m, arr));
+console.log(getPermutation(n, m, arr));

@@ -25,7 +25,7 @@ let n = 3;
 let m = 2;
 let arr = [3, 6, 9];
  
-function solution(n, m, arr){
+function getRepeatPermutation(n, m, arr){
   let temp = Array.from({length: m}, ()=>0);
   let answer = [];
  
@@ -44,4 +44,4 @@ function solution(n, m, arr){
   return answer;
 }
 
-console.log(solution(n, m, arr));
+console.log(getRepeatPermutation(n, m, arr));

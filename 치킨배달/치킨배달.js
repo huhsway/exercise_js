@@ -18,7 +18,7 @@ function solution(n, m, city) {
     }
   }
 
-  const candidates = combinations(chicken.length, m, chicken)
+  const candidates = getCombination(chicken.length, m, chicken)
   let answer = Infinity;
   for (let i = 0; i < candidates.length; i++) {
     answer = Math.min(answer, getMinDistance(house, candidates[i]))
@@ -28,7 +28,7 @@ function solution(n, m, city) {
 
 }
 
-const getMinDistance = (house, candidate) => {
+function getMinDistance (house, candidate){
   let sum = 0;
   house.forEach(([hx, hy]) => {
     let min = Infinity;
@@ -41,7 +41,7 @@ const getMinDistance = (house, candidate) => {
   return sum;
 };
 
-function combinations(n, m, arr){
+function getCombination(n, m, arr){
   let temp = Array.from({length: m}, ()=>0);
   let answer = [];
  

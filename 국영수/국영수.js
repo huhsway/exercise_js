@@ -1,6 +1,6 @@
 let [n, ...arr] = require('fs').readFileSync('./input.txt').toString().trim().split('\n');
 const names = [];
-arr = arr
+result = arr
         .map(v => v.split(" ").map(vv => Number(vv)||vv)) //Number(vv)||vv은 문자는 문자로 냅두고 문자형 숫자는 숫자로 바꾸는 거
         .sort((a, b) => {
             if (a[1] < b[1]) return 1
@@ -19,5 +19,5 @@ arr = arr
                 }
             }
         });
-arr.forEach(v => names.push(v[0]));
+result.forEach(v => names.push(v[0]));
 console.log(names.join("\n"));

@@ -1,13 +1,13 @@
 // 이진탐색 사용
 
-const solution = (words, queries) => {
+function solution(words, queries) {
     const answer = [];
-    const perfix = getTwoDimensionalArray(10001);
-    const suffix = getTwoDimensionalArray(10001);
+    const perfix = Array(10001).fill(null).map(() => []);
+    const suffix = Array(10001).fill(null).map(() => []);
   
     for (const word of words) {
       perfix[word.length].push(word);
-      suffix[word.length].push(reverseString(word));
+      suffix[word.length].push(word.split('').reverse().join(''));
     }
   
     for (let i = 0; i < 10001; i++) {
@@ -20,8 +20,8 @@ const solution = (words, queries) => {
       if (q[0] === '?') {
         range = countByRange(
           suffix[q.length],
-          reverseString(q).replace(/\?/g, 'a'),
-          reverseString(q).replace(/\?/g, 'z')
+          q.split('').reverse().join('').replace(/\?/g, 'a'),
+          q.split('').reverse().join('').replace(/\?/g, 'z')
         );
       } else {
         range = countByRange(
@@ -35,7 +35,7 @@ const solution = (words, queries) => {
     return answer;
   };
   
-  const binarySearch = (array, target, start, end) => {
+  function binarySearch(array, target, start, end){
   
     while (start <= end) {
       let mid = Math.floor((start + end) / 2);
@@ -52,16 +52,15 @@ const solution = (words, queries) => {
     return end; // lowerBound와  upperBound를 구하기 위해서 end 리턴
   };
 
+  function countByRange(data, left, right) {
+    return binarySearch(data, right, 0, data.length-1) - binarySearch(data, left, 0, data.length-1);
+  }
+    
+
+  // const countByRange = (data, left, right) =>
+  //   binarySearch(data, right, 0, data.length-1) - binarySearch(data, left, 0, data.length-1);
   
-  const getTwoDimensionalArray = (n) =>
-    Array(n)
-      .fill(null)
-      .map(() => []);
-  
-  const countByRange = (data, left, right) =>
-    binarySearch(data, right, 0, data.length-1) - binarySearch(data, left, 0, data.length-1);
-  
-  const reverseString = (string) => string.split('').reverse().join('');
+  // const reverseString = (string) => string.split('').reverse().join('');
 
 
 // // Trie 풀이

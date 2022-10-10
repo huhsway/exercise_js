@@ -25,7 +25,7 @@ function solution (n, weak, dist) {
     return -1;
   }
 
-  const getPermutation = (n, m, arr) => {
+  function getPermutation(n, m, arr) {
     let temp = Array.from({length: m}, ()=>0);
     let visited = Array.from({length: n}, ()=>0);
     let answer = [];

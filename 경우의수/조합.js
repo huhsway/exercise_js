@@ -30,7 +30,7 @@ let n = 5;
 let m = 2;
 let arr = [1,2,3,4,5];
  
-function solution(n, m, arr){
+function getCombination(n, m, arr){
   let temp = Array.from({length: m}, ()=>0);
   let answer = [];
  
@@ -48,4 +48,4 @@ function solution(n, m, arr){
   return answer;
 }
 
-console.log(solution(n, m, arr));
+console.log(getCombination(n, m, arr));
