@@ -32,8 +32,8 @@ let m = 2;
 let arr = [3, 6, 9];
  
 function getPermutation(n, m, arr){
-  let temp = Array.from({length: m}, ()=>0);
-  let visited = Array.from({length: n}, ()=>0);
+  let visited = Array(n).fill(0);
+  let temp = Array(m).fill(0);
   let answer = [];
  
   function DFS(depth){

@@ -31,7 +31,7 @@ let m = 2;
 let arr = [3, 6, 9];
  
 function getRepeatCombination(n, m, arr){
-  let temp = Array.from({length: m}, ()=>0);
+  let temp = Array(m).fill(0);
   let answer = [];
  
   function DFS(depth, start){

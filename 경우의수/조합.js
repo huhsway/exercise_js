@@ -31,7 +31,7 @@ let m = 2;
 let arr = [1,2,3,4,5];
  
 function getCombination(n, m, arr){
-  let temp = Array.from({length: m}, ()=>0);
+  let temp = Array(m).fill(0);
   let answer = [];
  
   function DFS(depth, start){

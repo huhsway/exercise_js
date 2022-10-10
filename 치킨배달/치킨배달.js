@@ -42,7 +42,7 @@ function getMinDistance (house, candidate){
 };
 
 function getCombination(n, m, arr){
-  let temp = Array.from({length: m}, ()=>0);
+  let temp = Array(m).fill(0);
   let answer = [];
  
   function DFS(depth, start){

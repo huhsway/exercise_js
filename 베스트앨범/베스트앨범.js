@@ -19,10 +19,10 @@ function solution(genres, plays) {
           .sort((a,b) => b.sum - a.sum)
           .map(el => el.list);
     
-    const indexs = sorted.map(list => 
+    const indexArr = sorted.map(list => 
       Object.keys(list).sort((a, b) => list[b] - list[a]));
     
-    indexs.forEach(genre => {
+      indexArr.forEach(genre => {
       if(genre[0]) answer.push(+genre[0]);
       if(genre[1]) answer.push(+genre[1]);
     });
