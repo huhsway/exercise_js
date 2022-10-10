@@ -33,7 +33,7 @@ function solution(food_times, k) {
     copy.sort((a, b) => {
       return a.index - b.index;
     });
-  value
+
     return copy[k].index;
   }
   

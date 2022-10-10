@@ -40,7 +40,7 @@ function solution(n, m, arr){
     }else{
       for (let i=start; i<n; i++){
         temp[depth] = arr[i];
-        DFS(depth+1, i+1);
+        DFS(depth+1, i);
         }
     }
   } 

@@ -4,47 +4,59 @@ let input = fs.readFileSync(filePath).toString().trim().split('\n');
 
 const [n, m] = input.shift().split(' ').map(Number);
 const city = input.map((line) => line.split(' ').map(Number));
-const house = [];
-const chicken = [];
 
-for (let i = 0; i < n; i++) {
-  for (let j = 0; j < n; j++) {
-    if (city[i][j] === 1) house.push([i, j]);
-    else if (city[i][j] === 2) chicken.push([i, j]);
+
+function solution(n, m, city) {
+
+  const house = [];
+  const chicken = [];
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (city[i][j] === 1) house.push([i, j]);
+      else if (city[i][j] === 2) chicken.push([i, j]);
+    }
   }
+
+  const candidates = combinations(chicken.length, m, chicken)
+  let answer = Infinity;
+  for (let i = 0; i < candidates.length; i++) {
+    answer = Math.min(answer, getMinDistance(house, candidates[i]))
+  }
+  
+  return answer;
+
 }
 
-const getMinDistance = () => {
+const getMinDistance = (house, candidate) => {
   let sum = 0;
   house.forEach(([hx, hy]) => {
     let min = Infinity;
-    chicken.forEach((_, index) => {
-      if (check[index] === true) {
-        const [cx, cy] = chicken[index];
-        min = Math.min(min, Math.abs(hx - cx) + Math.abs(hy - cy));
-      }
+    candidate.forEach((_, index) => {
+      const [cx, cy] = candidate[index];
+      min = Math.min(min, Math.abs(hx - cx) + Math.abs(hy - cy));
     });
     sum += min;
   });
   return sum;
 };
 
-const check = new Array(chicken.length).fill(false);
-let answer = Infinity;
-
-const DFS = (idx, cnt) => {
-  if (cnt === m) {
-    answer = Math.min(answer, getMinDistance());
-    return;
-  } else {
-    for (let i = idx; i < chicken.length; i++) {
-      if (check[i] === true) continue;
-      check[i] = true;
-      DFS(i, cnt + 1);
-      check[i] = false;
+function combinations(n, m, arr){
+  let temp = Array.from({length: m}, ()=>0);
+  let answer = [];
+ 
+  function DFS(depth, start){
+    if (depth === m){
+      answer.push(temp.slice());
+    }else{
+      for (let i=start; i<n; i++){
+        temp[depth] = arr[i];
+        DFS(depth+1, i+1);
+        }
     }
-  }
-};
+  } 
+  DFS(0, 0)
+  return answer;
+}
 
-DFS(0, 0);
-console.log(answer);
+console.log(solution(n,m,city));

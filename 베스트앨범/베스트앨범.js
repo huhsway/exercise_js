@@ -1,21 +1,31 @@
 function solution(genres, plays) {
-    var dic = {};
-    genres.forEach((t,i)=> {
-        dic[t] = dic[t] ?  dic[t] + plays[i] :plays[i];        
+    const answer = [];
+    const hash = genres.reduce((acc, cur, idx) => {
+      if(acc[cur]) {	
+        acc[cur].sum += plays[idx];
+        acc[cur].list[idx] = plays[idx];
+      } else	
+        acc[cur] = {
+          sum : plays[idx],
+          list : {
+            [idx] : plays[idx]
+          }
+        }
+    
+      return acc;
+    }, {});
+    
+    const sorted = Object.values(hash)
+          .sort((a,b) => b.sum - a.sum)
+          .map(el => el.list);
+    
+    const indexs = sorted.map(list => 
+      Object.keys(list).sort((a, b) => list[b] - list[a]));
+    
+    indexs.forEach(genre => {
+      if(genre[0]) answer.push(+genre[0]);
+      if(genre[1]) answer.push(+genre[1]);
     });
-
-    var dupDic = {};
-    return genres          
-          .map((t,i)=> ({genre : t, count:plays[i] , index:i}))
-          .sort((a,b)=>{               
-               if(a.genre !== b.genre) return dic[b.genre] - dic[a.genre];
-               if(a.count !== b.count) return b.count - a.count;
-               return a.index - b.index;
-           })
-           .filter(t=>  {
-               if(dupDic[t.genre] >= 2) return false;
-               dupDic[t.genre] = dupDic[t.genre] ? dupDic[t.genre]+ 1 : 1;
-               return true;
-            })
-           .map(t=> t.index);    
-}
+    
+    return answer;
+  }
