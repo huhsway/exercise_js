@@ -26,9 +26,9 @@
 // const num = 3;
 // console.log(getCombinations(arr,num));
 
-let n = 3;
+let n = 5;
 let m = 2;
-let arr = [3, 6, 9];
+let arr = [1,2,3,4,5];
  
 function solution(n, m, arr){
   let temp = Array.from({length: m}, ()=>0);
