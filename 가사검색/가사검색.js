@@ -2,16 +2,16 @@
 
 function solution(words, queries) {
     const answer = [];
-    const perfix = Array(10001).fill(null).map(() => []);
+    const prefix = Array(10001).fill(null).map(() => []);
     const suffix = Array(10001).fill(null).map(() => []);
   
     for (const word of words) {
-      perfix[word.length].push(word);
+      prefix[word.length].push(word);
       suffix[word.length].push(word.split('').reverse().join(''));
     }
   
     for (let i = 0; i < 10001; i++) {
-      perfix[i].sort();
+      prefix[i].sort();
       suffix[i].sort();
     }
   
@@ -25,7 +25,7 @@ function solution(words, queries) {
         );
       } else {
         range = countByRange(
-          perfix[q.length],
+          prefix[q.length],
           q.replace(/\?/g, 'a'),
           q.replace(/\?/g, 'z')
         );
