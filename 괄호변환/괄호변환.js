@@ -1,14 +1,14 @@
 function solution(p) {
-    var answer = '';
-    var open = 0;
-    var close = 0;
+    let answer = '';
+    let open = 0;
+    let close = 0;
     
     // 1. 재귀 탈출 조건
     if (!p) return ''; 
     
     for (let i=0; i<p.length; i++) {
-        if (p[i] === '(') open++
-        else close++
+        if (p[i] === '(') open++;
+        else close++;
         
         // 균형일 때 "올바른 괄호 문자열"인지 아닌지 판단
         if (open === close) {
@@ -37,7 +37,7 @@ function solution(p) {
 
 // 올바른 괄호 문자열인지 판단하는 함수
 function check(p) {
-    var stack = [];
+    const stack = [];
     for (let i = 0; i<p.length; i++) {
         if (p[i] === '(') stack.push('(')
         else {
