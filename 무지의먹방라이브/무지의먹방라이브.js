@@ -22,7 +22,7 @@ function solution(food_times, k) {
       previous += arr[i].time - previous; 
       k -= now; 
     } else {
-      let temp = Math.floor(k / (arr.length - i));
+      let temp = Math.floor(k / (arr.length - i)); // 남은 애들 중에서 남은 시간(k) 당 처리 할 수 있는 값
       k -= temp * (arr.length - i);
       previous += temp;
       break;
@@ -38,6 +38,9 @@ function solution(food_times, k) {
 }
 
 console.log(solution([3, 1, 2, 4], 5));
+
+// 밑에 shift로 풀어보려고 했는데 shift의 시간 복잡도가 O(n)이라서 효율성 터진다.
+// priority queue로 풀어야 함
 
 // function solution(food_times, k) {
 //     let arr = [];
