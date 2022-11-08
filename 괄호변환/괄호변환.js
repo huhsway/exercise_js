@@ -1,49 +1,42 @@
-function solution(p) {
-    let answer = '';
-    let open = 0;
-    let close = 0;
-    
-    // 1. 재귀 탈출 조건
-    if (!p) return ''; 
-    
-    for (let i=0; i<p.length; i++) {
-        if (p[i] === '(') open++;
-        else close++;
-        
-        // 균형일 때 "올바른 괄호 문자열"인지 아닌지 판단
-        if (open === close) {
-            // 2, 3, 3-1
-            if (check(p.slice(0, i+1))) {
-                answer = p.slice(0, i+1) + solution(p.slice(i+1));
-                return answer;
-            } else {
-                // 4-1, 4-2, 4-3
-                answer = '(' + solution(p.slice(i+1)) + ')';
-                
-                // 4-4
-                for (let j=1; j<i; j++) {
-                    if (p[j] === '(') {
-                        answer = answer + ')'
-                    } else {
-                        answer = answer + '('
-                    }
-                }
-                // 4-5
-                return answer;
-            }
-        }
-    }    
+// '균형잡힌 괄호 문자열'의 인덱스 반환
+function balancedIndex(p) {
+    let count = 0;
+    for (let i = 0; i < p.length; i++) {
+        if (p[i] === '(') count++;
+        else count--;
+        if (count === 0) return i;
+    }
 }
 
-// 올바른 괄호 문자열인지 판단하는 함수
-function check(p) {
-    const stack = [];
-    for (let i = 0; i<p.length; i++) {
-        if (p[i] === '(') stack.push('(')
+function checkProper(p) {
+    let count = 0; // 왼쪽 괄호의 개수
+    for (let i = 0; i < p.length; i++) {
+        if (p[i] === '(') count++;
         else {
-            if (stack.length === 0) return false;
-            stack.pop();
+            if (count === 0) return false;
+            count--;
         }
     }
     return true;
+}
+
+function solution(p) {
+    let answer = '';
+    if (p === '') return '';
+    let index = balancedIndex(p);
+    let u = p.slice(0, index + 1);
+    let v = p.slice(index + 1);
+    if (checkProper(u)) answer = u + solution(v)
+    else {
+        answer = '(';
+        answer += solution(v);
+        answer += ')';
+        u = [...u.slice(1,-1)]
+        for (let i = 0; i < u.length; i++) {
+            if (u[i] === '(') u[i] = ')';
+            else u[i] = '(';
+        }
+        answer += u.join('');
+    }
+    return answer;
 }
