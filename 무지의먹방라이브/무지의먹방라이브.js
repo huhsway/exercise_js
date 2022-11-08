@@ -37,7 +37,7 @@ function solution(food_times, k) {
   return arr[k].index;
 }
 
-console.log(solution([3, 1, 2, 4], 5));
+console.log(solution([3, 1, 2], 5));
 
 // 밑에 shift로 풀어보려고 했는데 shift의 시간 복잡도가 O(n)이라서 효율성 터진다.
 // priority queue로 풀어야 함
