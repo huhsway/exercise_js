@@ -1,7 +1,7 @@
 let [n, ...arr] = require('fs').readFileSync('./input.txt').toString().trim().split('\n');
 const names = [];
 result = arr
-        .map(v => v.split(" ").map(vv => Number(vv)||vv)) //Number(vv)||vv은 문자는 문자로 냅두고 문자형 숫자는 숫자로 바꾸는 거
+        .map(v => v.split(" ").map(vv => Number(vv)||vv)) //Number(vv)||vv는 문자는 문자로 냅두고 문자형 숫자는 숫자로 바꾸는 거
         .sort((a, b) => {
             if (a[1] < b[1]) return 1
             else if (a[1] > b[1]) return -1

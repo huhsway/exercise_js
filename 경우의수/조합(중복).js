@@ -26,6 +26,8 @@
 // const num = 3;
 // console.log(getCombinations(arr,num));
 
+// 조합에서 start를 +1 안한거
+
 let n = 3;
 let m = 2;
 let arr = [3, 6, 9];

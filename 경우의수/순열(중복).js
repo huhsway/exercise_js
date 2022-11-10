@@ -21,6 +21,9 @@
 // const num = 3;
 // console.log(getPermutations(arr,num));
 
+
+// 순열에서 visited 없는거
+
 let n = 3;
 let m = 2;
 let arr = [3, 6, 9];
