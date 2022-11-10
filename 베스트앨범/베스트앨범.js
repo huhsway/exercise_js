@@ -32,7 +32,7 @@ function solution(genres, plays) {
     
     // sum 값이 큰 순으로 정렬
     const sorted = Object.values(hash)
-          .sort((a,b) => b.sum - a.sum)
+          .sort((a,b) => b.sum - a.sum) // 참고 중괄호{}를 하면 return을 써야하고 ex. return b.sum - a.sum 중괄호{} 없으면 return 빼고 씀
         .map(el => el.list);
     
     // list내에서 많이 play 된 순으로 정렬
