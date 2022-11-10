@@ -38,7 +38,7 @@ function getPermutation(n, m, arr){
  
   function DFS(depth){
     if (depth === m){
-      answer.push(temp.slice());
+      answer.push(temp.slice()); // slice()는 원본 배열 안건드림 (원본 배열 안건드리고 그 배열을 그대로 복제할 때 사용)
     }else{
       for (let i=0; i<n; i++){
         if (!visited[i]){
