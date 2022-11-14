@@ -46,7 +46,7 @@ function check(newMap, y, x) {
 
 function solution(maps) {
     let answer = 0;
-    let newMap = Array.from(Array(maps.length), () => Array(maps[0].length).fill(false))
+    let newMap = Array(maps.length).fill().map(() => Array(maps[0].length).fill(false))
     let sum = 0
 
     const mapArr = [];
@@ -57,7 +57,7 @@ function solution(maps) {
             if (maps[i][j] === 1 && newMap[i][j] === false) {
                 bfs(maps, newMap, i, j)
                 mapArr.push(newMap)
-                newMap = Array.from(Array(maps.length), () => Array(maps[0].length).fill(false))
+                newMap = Array(maps.length).fill().map(() => Array(maps[0].length).fill(false))
 
             }
         }

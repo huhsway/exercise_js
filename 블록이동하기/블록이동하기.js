@@ -4,7 +4,7 @@ function solution (board) {
     const queue = [ [ [1,1], [1,2], 0 ] ];
     const visit = new Set(["1112"]);
     
-    const new_board = new Array(N+2).fill().map(_ => new Array(N+2).fill(1));
+    const new_board = Array(N+2).fill().map(_ => Array(N+2).fill(1));
     for(let i = 0; i < N; i++) {
       for(let j = 0; j < N; j++) {
         new_board[i+1][j+1] = board[i][j];

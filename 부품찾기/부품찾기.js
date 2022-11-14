@@ -1,4 +1,4 @@
-let [n, input, m, target] = require('fs').readFileSync('./input.txt').toString().trim().split('\n');
+let [n, input, m, target] = require('fs').readFileSync(__dirname+'/input.txt').toString().trim().split('\n');
 
 function solution(n, input, m, target) {
 
