@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/17676
+
 /* timeString to timeNumber (ex. 00:01:00.002 => 60.002) */
 function toTimeNumber (timeStr) {
     const hours = Number(timeStr.substr(0, 2)) *60 *60 *1000;

@@ -1,3 +1,5 @@
+// 여러개의 섬 중에서 가장 큰 최대 둘레 구해라
+
 function bfs(maps, newMap, y, x) {
     let cnt = 1;
     const dy = [0, 0, -1, 1]

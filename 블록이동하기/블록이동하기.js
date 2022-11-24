@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/60063 
+
 function solution (board) {
     const N = board.length;
     const goal = N + '' + N;

@@ -1,6 +1,8 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/60062 
+
 function solution (n, weak, dist) {
     const len = weak.length;
-    const linear_weak = new Array(len*2 - 1).fill(0);
+    const linear_weak = Array(len*2 - 1).fill(0);
     
     for(let i = 0; i < len*2-1; i++)
       linear_weak[i] = i < len ? weak[i] : weak[i-len] + n;

@@ -1,9 +1,11 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/60060 
+
 // 이진탐색 사용
 
 function solution(words, queries) {
     const answer = [];
-    const prefix = Array(10001).fill(null).map(() => []);
-    const suffix = Array(10001).fill(null).map(() => []);
+    const prefix = Array(10001).fill().map(() => []);
+    const suffix = Array(10001).fill().map(() => []);
   
     for (const word of words) {
       prefix[word.length].push(word);

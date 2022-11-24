@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/60058
+
 // '균형잡힌 괄호 문자열'의 인덱스 반환
 function balancedIndex(p) {
     let count = 0;

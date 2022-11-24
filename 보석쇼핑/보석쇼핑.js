@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/67258
+
 function solution(gems) {
     const cnt = new Set(gems).size;
     let ans = [1, gems.length];

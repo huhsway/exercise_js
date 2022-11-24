@@ -22,7 +22,7 @@ function solution(total_sp, skills) {
         if (skill[1] > max) max = skill[1]
     }
 
-    const skillTree = Array(max + 1).fill(null).map(() => []);
+    const skillTree = Array(max + 1).fill().map(() => []);
 
     for (const skill of skills) {
          skillTree[skill[0]].push(skill[1])

@@ -1,3 +1,5 @@
+// https://velog.io/@xxwb__/%EC%9D%B4%EA%B2%83%EC%9D%B4-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4-%EC%A0%95%EB%A0%AC-%EA%B5%AD%EC%98%81%EC%88%98 
+
 let [n, ...arr] = require('fs').readFileSync(__dirname+'/input.txt').toString().trim().split('\n');
 const names = [];
 result = arr
