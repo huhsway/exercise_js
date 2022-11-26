@@ -32,11 +32,11 @@ function solution(n, m, city) {
 
 function getMinDistance (house, candidate){
   let sum = 0;
-  house.forEach(([hx, hy]) => {
+  house.forEach(([hy, hx]) => {
     let min = Infinity;
     candidate.forEach((_, index) => {
-      const [cx, cy] = candidate[index];
-      min = Math.min(min, Math.abs(hx - cx) + Math.abs(hy - cy));
+      const [cy, cx] = candidate[index];
+      min = Math.min(min, Math.abs(hy - cy) + Math.abs(hx - cx));
     });
     sum += min;
   });
