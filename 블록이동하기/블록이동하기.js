@@ -32,36 +32,35 @@ function solution (board) {
   
   function getNextPosition (left, right, board){
     const result = [];
-    const X = 1, Y = 0;
     const moves = [ [-1,0], [1, 0], [0,-1], [0,1] ];
     
     for(const move of moves) {
       const [dy, dx] = move;
-      const next_left = [ left[Y]+dy, left[X]+dx ];
-      const next_right = [ right[Y]+dy, right[X]+dx ];
+      const next_left = [ left[0]+dy, left[1]+dx ];
+      const next_right = [ right[0]+dy, right[1]+dx ];
       
-      if(board[next_left[Y]][next_left[X]] === 0 &&
-         board[next_right[Y]][next_right[X]] === 0) {
+      if(board[next_left[0]][next_left[1]] === 0 &&
+         board[next_right[0]][next_right[1]] === 0) {
         result.push([next_left, next_right]);
       }
     }
     
     const toward = [-1, 1];
     
-    if(left[Y] === right[Y]) {
+    if(left[0] === right[0]) {
       for(const dy of toward) {
-        if(board[left[Y]+dy][left[X]] === 0 &&
-           board[right[Y]+dy][right[X]] === 0) {
-          result.push([ left, [ left[Y]+dy, left[X] ] ]);
-          result.push([ [ right[Y]+dy, right[X] ], right ]);
+        if(board[left[0]+dy][left[1]] === 0 &&
+           board[right[0]+dy][right[1]] === 0) {
+          result.push([ left, [ left[0]+dy, left[1] ] ]);
+          result.push([ [ right[0]+dy, right[1] ], right ]);
         }
       }
     } else {
       for(const dx of toward) {
-        if(board[left[Y]][left[X]+dx] === 0 &&
-           board[right[Y]][right[X]+dx] === 0) {
-          result.push([ [left[Y], left[X]+dx ], left ]);
-          result.push([ right, [ right[Y], right[X]+dx ] ]);
+        if(board[left[0]][left[1]+dx] === 0 &&
+           board[right[0]][right[1]+dx] === 0) {
+          result.push([ [left[0], left[1]+dx ], left ]);
+          result.push([ right, [ right[0], right[1]+dx ] ]);
         }
       }
     }                  
