@@ -12,8 +12,8 @@ function toTimeNumber (timeStr) {
 function solution(lines) {
 
     /* 시작시간,종료시간 */
-    const logs = lines.map( e => e.slice(11).split(' ') ).map( e => [ toTimeNumber(e[0]), Number(e[1].replace('s','')) ] );
-    const times = logs.map( e => [ e[0] -(e[1]*1000) +1, e[0] ] ) // times[i] includes [ 시작시간, 종료시간 ]
+    const logs = lines.map( it => it.slice(11).split(' ') ).map( it => [ toTimeNumber(it[0]), Number(it[1].replace('s','')) ] );
+    const times = logs.map( it => [ it[0] -(it[1]*1000) +1, it[0] ] ) // times[i] includes [ 시작시간, 종료시간 ]
                     .sort((a, b) => a[0] - b[0]); // 시작시간 기준 오름차순 정렬
 
     /* 시작시간 기준 순회 비교 */
@@ -21,7 +21,7 @@ function solution(lines) {
     let window = [];
     times.forEach(([start,end]) => {
         window.push(end);
-        window = window.filter(e => e > start - 1000);
+        window = window.filter(it => it > start - 1000);
         if (window.length > max) max = window.length;
     })
 
