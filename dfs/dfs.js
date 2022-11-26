@@ -14,7 +14,7 @@ const visited = Array(9).fill(false)
 function dfs(graph, v, visited) {
 
     visited[v] = true
-    console.log(v, end = ' ')
+    console.log(v)
     for (const i of graph[v]) {
         if (!visited[i])
             dfs(graph, i, visited)
