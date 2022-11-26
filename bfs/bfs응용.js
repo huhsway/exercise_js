@@ -30,7 +30,7 @@ function bfs(y, x) {
             }
 
             if (graph[ny][nx] === 1) {
-                graph[ny][nx] = graph[y][x] + 1
+                graph[ny][nx] = graph[y][x] + 1 // 이걸로 방문 표시가 되는거 같음
                 queue.push({ y: ny, x: nx })
             }
 
