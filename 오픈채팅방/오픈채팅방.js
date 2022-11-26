@@ -13,15 +13,17 @@ function solution(record) {
         
         if (state == 'Leave') {
             answer.push([uid, '님이 나갔습니다.']);
-            
-            continue;
         }
         
-        if (state == 'Enter') {
+        else if (state == 'Enter') {
             answer.push([uid, '님이 들어왔습니다.']);
+            
+            map.set(uid, name);
         }
 
-        map.set(uid, name);
+        else if (state == 'Change') {
+            map.set(uid, name);
+        }
     }
     
     return answer.map(ele => map.get(ele[0]) + ele[1]);
