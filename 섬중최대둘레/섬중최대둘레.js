@@ -49,6 +49,7 @@ function check(newMap, y, x) {
 function solution(maps) {
     let answer = 0;
     let newMap = Array(maps.length).fill().map(() => Array(maps[0].length).fill(false))
+    console.log(newMap)
     let sum = 0
 
     const mapArr = [];

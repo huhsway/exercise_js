@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number[]}
  */
- var twoSum = function twoSum(nums, target) {
+var twoSum = function twoSum(nums, target) {
     let vals = {};
   
     for (let i = 0; i < nums.length; i++) {
@@ -13,4 +13,4 @@
         vals[nums[i]] = i;
       }
     }
-};
+  };
