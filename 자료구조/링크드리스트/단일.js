@@ -2,8 +2,8 @@
 
 // 단일 링크드리스트
 class Node {
-    constructor(element) {
-      this.element = element;
+    constructor(value) {
+      this.value = value;
       this.next = null;
     }
   }
@@ -13,8 +13,8 @@ class Node {
       this.head = new Node("head");
     }
   
-    append(newElement) {
-      let newNode = new Node(newElement); //새로운 노드 생성
+    append(value) {
+      let newNode = new Node(value); //새로운 노드 생성
       let current = this.head; // 시작 노드
       while (current.next != null) {
         // 맨 끝 노드 찾기
@@ -23,8 +23,8 @@ class Node {
       current.next = newNode;
     }
   
-    insert(newElement, item) {
-      let newNode = new Node(newElement); //새로운 노드 생성
+    insert(value, item) {
+      let newNode = new Node(value); //새로운 노드 생성
       let current = this.find(item); // 삽입할 위치의 노드 찾기
       newNode.next = current.next; // 찾은 노드가 가리키는 노드를 새로은 노드가 가리키기
       current.next = newNode; // 찾은 노드는 이제부터 새로운 노드를 가리키도록 하기
@@ -36,29 +36,29 @@ class Node {
     }
   
     find(item) {
-      let currNode = this.head;
-      while (currNode.element !== item) {
-        currNode = currNode.next;
+      let curNode = this.head;
+      while (curNode.value !== item) {
+        curNode = curNode.next;
       }
-      return currNode;
+      return curNode;
     }
   
     findPrevious(item) {
-      let currNode = this.head;
-      while (currNode.next != null && currNode.next.element !== item) {
-        currNode = currNode.next;
+      let curNode = this.head;
+      while (curNode.next != null && curNode.next.value !== item) {
+        curNode = curNode.next;
       }
-      return currNode;
+      return curNode;
     }
   
     toString() {
-      let array = [];
-      let currNode = this.head;
-      while (currNode.next !== null) {
-        array.push(currNode.next.element);
-        currNode = currNode.next;
+      let arr = [];
+      let curNode = this.head;
+      while (curNode.next !== null) {
+        arr.push(curNode.next.value);
+        curNode = curNode.next;
       }
-      return array;
+      return arr;
     }
   }
   

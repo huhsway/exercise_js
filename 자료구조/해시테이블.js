@@ -80,13 +80,13 @@ class Hashtable {
 }
 
 const newHashtable = new Hashtable();
-//console.log(newHashtable.hash('name'))
-//console.log(newHashtable)
+console.log(newHashtable.hash('name'))
+console.log(newHashtable)
 
 newHashtable.set("name", "jsiub");
 newHashtable.set("mean", false);
 newHashtable.set("age", 30);
-//console.log(newHashtable.data)
-//console.log(newHashtable.entries())
+console.log(newHashtable.data)
+console.log(newHashtable.entries())
 console.log(newHashtable.get("name"));
 console.log(newHashtable.values());

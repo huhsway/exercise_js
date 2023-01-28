@@ -2,6 +2,8 @@
  * @param {number[]} prices
  * @return {number}
  */
+
+// 내가 산거보다 싼게 있다면 사서 비교하는게 핵심
 var maxProfit = function(prices) {
     
     let buy = prices[0], max_profit = 0, length = prices.length;

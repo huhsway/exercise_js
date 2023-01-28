@@ -3,6 +3,8 @@
  * @param {number} target
  * @return {number}
  */
+
+// 이진탐색으로 nums[start] <= nums[mid]일때 범위를 좁히는게 핵심
 var search = function(nums, target) {
 
     let start = 0;

@@ -25,31 +25,8 @@ class Tree {
   }
 }
 
-// class Node {
-//     constructor(content, children = []) {
-//       this.content = content;
-//       this.children = children;
-//     }
-//   }
-  
-//   const tree = new Node('hello', [
-//     new Node('world'),
-//     new Node('and'),
-//     new Node('fun', [
-//       new Node('javascript!')
-//     ])
-//   ]);
-  
-//   function traverse(node) {
-//     console.log(node.content);
-//     for (let child of node.children) {
-//       traverse(child);
-//     }
-//   }
-  
-//   traverse(tree);
-//   // hello 
-//   // world 
-//   // and 
-//   // fun 
-//   // javascript!
+const node1 = new Tree(1);
+node1.insertNode(2);
+node1.children[0].insertNode(3);
+
+console.log(node1.contains(3))
