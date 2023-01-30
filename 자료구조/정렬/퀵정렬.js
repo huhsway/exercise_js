@@ -1,36 +1,36 @@
-// https://nyang-in.tistory.com/222
+// https://ssafy-story.tistory.com/21
 
-function quickSort(array, left, right) {
-  if (left >= right) {
-    return;
-  }
-  const mid = Math.floor((left + right) / 2);
-  const pivot = array[mid];
-  const partition = divide(array, left, right, pivot);
-  quickSort(array, left, partition - 1);
-  quickSort(array, partition, right);
+let array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
 
-  function divide(array, left, right, pivot) {
+const quickSort = function (array, start, end) {
+
+    if (start >= end) return;
+
+    let pivot = start;
+    let left = start + 1;
+    let right = end;
+
     while (left <= right) {
-      while (array[left] < pivot) {
-        left++;
-      }
-      while (array[right] > pivot) {
-        right--;
-      }
 
-      if (left <= right) {
-        let temp = array[left];
-        array[left] = array[right];
-        array[right] = temp;
-        left++;
-        right--;
-      }
+        while (left <= end && array[left] <= array[pivot]) left++;
+        while (right > start && array[right] >= array[pivot]) right--;
+
+        if (left > right) {
+            let swap = array[pivot];
+            array[pivot] = array[right];
+            array[right] = swap
+        } else {
+            let swap = array[left];
+            array[left] = array[right];
+            array[right] = swap;
+        }
     }
-    return left;
-  }
-  return array;
+
+    quickSort(array, 0, right - 1);
+    quickSort(array, right + 1, end);
+
+    return array;
 }
 
-const arr = [1, 12, 5, 26, 7, 14, 3, 7];
-console.log(quickSort([1, 12, 5, 26, 7, 14, 3, 7], 0, arr.length - 1));
+const sorted = quickSort(array, 0, array.length - 1)
+console.log(sorted);
