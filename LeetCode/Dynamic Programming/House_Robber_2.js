@@ -2,37 +2,28 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function (nums) {
-    var length = nums.length;
+var rob = function(nums) {
+    
+    if (nums.length === 0) return 0
+    if (nums.length === 1) return nums[0];
 
-    if (length === 0) {
-        return 0;
+    const dp1 = [];
+
+    dp1[0] = nums[0];
+    dp1[1] = Math.max(dp1[0], nums[1]);
+
+    for (let i = 2; i <= nums.length - 2; i++) {
+        dp1[i] = Math.max(dp1[i-2] + nums[i], dp1[i-1]);
     }
 
-    if (length == 1) {
-        return nums[0];
+    const dp2 = [];
+
+    dp2[1] = nums[1];
+    dp2[2] = Math.max(dp2[1], nums[2]);
+
+    for (let i = 3; i <= nums.length - 1; i++) {
+        dp2[i] = Math.max(dp2[i-2] + nums[i], dp2[i-1])
     }
 
-    if (length == 2) {
-        return Math.max(nums[0], nums[1]);
-    }
-
-    var opt1 = [],
-        opt2 = [];
-
-    // 1 to n-1
-    opt1[0] = nums[0];
-    opt1[1] = Math.max(nums[0], nums[1]);
-    for (var i = 2; i <= length - 2; i++) {
-        opt1[i] = Math.max(nums[i] + opt1[i - 2], opt1[i - 1]);
-    }
-
-    // 2 to n
-    opt2[1] = nums[1];
-    opt2[2] = Math.max(nums[1], nums[2]);
-    for (var j = 3; j <= length - 1; j++) {
-        opt2[j] = Math.max(nums[j] + opt2[j - 2], opt2[j - 1]);
-    }
-
-    return Math.max(opt1[length - 2], opt2[length - 1]);
-}
+    return Math.max(dp1[nums.length - 2], dp2[nums.length - 1])
+};
