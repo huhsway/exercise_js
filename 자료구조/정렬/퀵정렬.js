@@ -1,6 +1,6 @@
 // https://nyang-in.tistory.com/222
 
-function quickSort(array, left = 0, right = array.length - 1) {
+function quickSort(array, left, right) {
   if (left >= right) {
     return;
   }
