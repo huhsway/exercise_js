@@ -1,25 +1,36 @@
-// https://im-developer.tistory.com/135
+// https://nyang-in.tistory.com/222
 
-function quickSort(array) {
-    if (array.length < 2) {
-      return array;
-    }
-    const pivot = [array[0]];
-    const left = [];
-    const right = [];
-   
-    for (let i = 1; i < array.length; i++) {
-      if (array[i] < pivot) {
-        left.push(array[i]);
-      } else if (array[i] > pivot) {
-        right.push(array[i]);
-      } else {
-        pivot.push(array[i]);
+function quickSort(array, left = 0, right = array.length - 1) {
+  if (left >= right) {
+    return;
+  }
+  const mid = Math.floor((left + right) / 2);
+  const pivot = array[mid];
+  const partition = divide(array, left, right, pivot);
+  quickSort(array, left, partition - 1);
+  quickSort(array, partition, right);
+
+  function divide(array, left, right, pivot) {
+    while (left <= right) {
+      while (array[left] < pivot) {
+        left++;
+      }
+      while (array[right] > pivot) {
+        right--;
+      }
+
+      if (left <= right) {
+        let temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+        left++;
+        right--;
       }
     }
-    console.log(`left: ${left}, pivot: ${pivot}, right: ${right}`);
-    return quickSort(left).concat(pivot, quickSort(right));
+    return left;
   }
-   
-  const sorted = quickSort([5, 3, 7, 1, 9]);
-  console.log(sorted);
+  return array;
+}
+
+const arr = [1, 12, 5, 26, 7, 14, 3, 7];
+console.log(quickSort([1, 12, 5, 26, 7, 14, 3, 7], 0, arr.length - 1));
