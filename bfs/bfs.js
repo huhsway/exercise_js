@@ -18,8 +18,7 @@ function bfs(graph, start, visited) {
     visited[start] = true
 
     while (queue.length) {
-        v = queue.shift()
-        console.log(v)
+        const v = queue.shift()
         for (const i of graph[v]) {
             if (!visited[i]) {
                 queue.push(i)
