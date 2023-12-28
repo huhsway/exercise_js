@@ -21,5 +21,15 @@ result = arr
                 }
             }
         });
+
+// result = arr
+//     .map(v => v.split(" ").map(vv => Number(vv) || vv))
+//     .sort((a, b) => 
+//         b[1] - a[1] || 
+//         a[2] - b[2] || 
+//         b[3] - a[3] || 
+//         a[0].toString().localeCompare(b[0].toString())
+//     );
+
 result.forEach(v => names.push(v[0]));
 console.log(names.join("\n"));
