@@ -34,8 +34,11 @@ function getMinDistance (house, candidate){
   let sum = 0;
   house.forEach(([hy, hx]) => {
     let min = Infinity;
-    candidate.forEach((_, index) => {
-      const [cy, cx] = candidate[index];
+    // candidate.forEach((_, index) => {
+    //   const [cy, cx] = candidate[index];
+    //   min = Math.min(min, Math.abs(hy - cy) + Math.abs(hx - cx));
+    // });
+    candidate.forEach(([cy, cx]) => {
       min = Math.min(min, Math.abs(hy - cy) + Math.abs(hx - cx));
     });
     sum += min;
