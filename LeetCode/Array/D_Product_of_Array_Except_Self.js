@@ -3,6 +3,8 @@
  * @return {number[]}
  */
 
+// https://leetcode.com/problems/product-of-array-except-self/
+
 // 왼쪽에서 곱해 나간 다음에 끝에서 부터 다시 밑으로 원래 배열의 누적을 곱해주자.
 var productExceptSelf = function(nums) {
 

@@ -4,6 +4,8 @@
  * @return {number}
  */
 
+// https://leetcode.com/problems/longest-repeating-character-replacement/ 
+
 const characterReplacement = (s, k) => {
     let left = 0
     let right = 0

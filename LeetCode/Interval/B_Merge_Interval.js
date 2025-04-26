@@ -2,6 +2,9 @@
  * @param {number[][]} intervals
  * @return {number[][]}
  */
+
+// https://leetcode.com/problems/merge-intervals/
+
 var merge = function(intervals) {
     if (intervals.length < 2) return intervals;
     

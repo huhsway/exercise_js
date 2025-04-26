@@ -2,6 +2,9 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
 var findMin = function(nums) {
     
     let left = 0;

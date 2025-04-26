@@ -3,6 +3,8 @@
  * @return {boolean}
  */
 
+//  https://leetcode.com/problems/contains-duplicate/
+
 // reduce를 이용해서 갯수를 센 다음에 값이 없으면 true, false를 반환하는 some을 사용하자
 var containsDuplicate = function(nums) {
 

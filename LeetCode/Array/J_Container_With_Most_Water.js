@@ -3,6 +3,8 @@
  * @return {number}
  */
 
+// https://leetcode.com/problems/container-with-most-water/
+
 // 기준값을 놓고 범위를 줄여서 최댓값을 찾자
 var maxArea = function(height) {
     let max = 0;

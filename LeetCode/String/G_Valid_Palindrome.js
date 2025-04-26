@@ -4,6 +4,9 @@
  * @param {string} s 입력 문자열
  * @returns {boolean} 회문이면 true, 아니면 false
  */
+
+// https://leetcode.com/problems/valid-palindrome/
+
 function isPalindrome(s) {
     // 1. 영숫자가 아닌 문자 제거 및 소문자로 변환
     // 정규표현식 /[^a-zA-Z0-9]/g 는 영문자(a-z, A-Z)나 숫자(0-9)가 아닌 모든 문자를 찾습니다.

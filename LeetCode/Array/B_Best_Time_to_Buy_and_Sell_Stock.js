@@ -3,6 +3,8 @@
  * @return {number}
  */
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 // 내가 산거보다 싼게 있다면 사서 비교하는게 핵심
 var maxProfit = function(prices) {
     

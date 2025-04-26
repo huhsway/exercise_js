@@ -3,6 +3,9 @@
  * @param {string} t
  * @return {boolean}
  */
+
+// https://leetcode.com/problems/valid-anagram/ 
+
 var isAnagram = function(s, t) {
     
     const sMap = s.split('').sort().reduce((acc,cur) => {

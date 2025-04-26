@@ -3,6 +3,8 @@
  * @return {number}
  */
 
+//  https://leetcode.com/problems/maximum-product-subarray/
+
 // 현재, maxValue곱한 값, minValue곱한 값 이렇게 따져야 함 왜냐하면 - * -가 +니까
 var maxProduct = function(nums) {
 

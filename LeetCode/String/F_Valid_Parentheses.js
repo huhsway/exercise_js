@@ -2,6 +2,9 @@
  * @param {string} s
  * @return {boolean}
  */
+
+// https://leetcode.com/problems/valid-parentheses/ 
+
 const isValid = function(s) {
     // if (s.length % 2 !== 0) return false;
     

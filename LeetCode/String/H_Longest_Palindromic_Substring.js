@@ -6,6 +6,9 @@
  * @param {string} s
  * @return {string}
  */
+
+// https://leetcode.com/problems/longest-palindromic-substring/
+
 function isPalindrome(str) {
     const reversedStr = str.split("").reverse().join("");
     return str === reversedStr;
