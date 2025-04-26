@@ -6,7 +6,7 @@
 
 // https://leetcode.com/problems/longest-repeating-character-replacement/ 
 
-const characterReplacement = (s, k) => {
+var characterReplacement = function(s, k) {
     let left = 0
     let right = 0
     let maxCharCount = 0
