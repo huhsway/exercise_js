@@ -8,23 +8,23 @@
 
 var characterReplacement = function(s, k) {
     let left = 0
-    let right = 0
     let maxCharCount = 0
+    let maxLen = 0;
     const visited = {}
   
-    while (right < s.length) {
+    for (let right = 0; right < s.length; right++) {
       const char = s[right]
       visited[char] = visited[char] ? visited[char] + 1 : 1
   
-      if (visited[char] > maxCharCount) maxCharCount = visited[char]
+      if (visited[char] > maxCharCount) maxCharCount = visited[char] // maxCharCount = Math.max(maxCharCount, visited[char]);
   
       if (right - left + 1 - maxCharCount > k) {
         visited[s[left]]--
         left++
       }
-  
-      right++
+      
+      maxLen = Math.max(maxLen, right - left + 1)
     }
   
-    return right - left
+    return maxLen
   }
