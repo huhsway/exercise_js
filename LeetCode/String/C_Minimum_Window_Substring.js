@@ -22,30 +22,30 @@ var minWindow = function(s, t) {
   },{})
 
   while (right < sLen) {
-    if (tList[s[right]] !== undefined) {
-      if (tList[s[right]] > 0) count--;
-      tList[s[right]]--;
-    }
-    right++;
-
-    while (count === 0) {
-      if (right - left < minValue) {
-        minValue = right - left;
-        start = left;
+      if (tList[s[right]] !== undefined) {
+          if (tList[s[right]] > 0) count--;
+          tList[s[right]]--;
       }
+      right++;
 
-      if (tList[s[left]] !== undefined) {
-        if (tList[s[left]] === 0) count++;
-        tList[s[left]]++;
+      while (count === 0) {
+          if (right - left < minValue) {
+              minValue = right - left;
+              start = left;
+          }
+
+          if (tList[s[left]] !== undefined) {
+              if (tList[s[left]] === 0) count++;
+              tList[s[left]]++;
+          }
+          left++;
       }
-      left++;
-    }
   }
 
-  return minValue === Number.MAX_SAFE_INTEGER ? '' : s.substr(start, minValue);
+  return minValue === Number.MAX_SAFE_INTEGER ? '' : s.substring(start, start + minValue);
 };
 
 const s = "ADOBECODEBANC";
 const t = "ABC";
 
-minWindow(s, t)
+minWindow(s, t);
