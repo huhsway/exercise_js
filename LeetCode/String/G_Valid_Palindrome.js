@@ -8,33 +8,25 @@
 // https://leetcode.com/problems/valid-palindrome/
 
 function isPalindrome(s) {
-    // 1. 영숫자가 아닌 문자 제거 및 소문자로 변환
-    // 정규표현식 /[^a-zA-Z0-9]/g 는 영문자(a-z, A-Z)나 숫자(0-9)가 아닌 모든 문자를 찾습니다.
-    // g 플래그는 문자열 전체에서 모든 일치 항목을 찾도록 합니다.
-    // replace 메서드로 찾은 문자들을 빈 문자열("")로 대체합니다.
-    // toLowerCase() 메서드로 문자열 전체를 소문자로 변환합니다.
+  
     const cleanString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-    // 2. 빈 문자열은 회문으로 간주 (문제 정의에 따라 달라질 수 있으나, LeetCode에서는 보통 true)
     if (cleanString.length === 0) {
         return true;
     }
 
-    // 3. 투 포인터를 사용하여 회문 검사
-    let left = 0;                     // 왼쪽 포인터 (시작 인덱스)
-    let right = cleanString.length - 1; // 오른쪽 포인터 (마지막 인덱스)
+    let left = 0;                     
+    let right = cleanString.length - 1; 
 
     while (left < right) {
-        // 양쪽 포인터가 가리키는 문자가 다르면 회문이 아님
+    
         if (cleanString[left] !== cleanString[right]) {
             return false;
         }
-        // 포인터 이동
         left++;
         right--;
     }
 
-    // 반복문이 무사히 끝나면 회문임
     return true;
 }
 
