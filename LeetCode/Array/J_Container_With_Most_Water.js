@@ -8,14 +8,14 @@
 // 기준값을 놓고 범위를 줄여서 최댓값을 찾자
 var maxArea = function(height) {
     let maxValue = 0;
-    let start = 0;
-    let end = height.length - 1;
+    let left = 0;
+    let right = height.length - 1;
     
-    while (start < end) {
-        const standard = height[end] > height[start] ? height[start] : height[end];
-        const gap = (end - start) * standard;
+    while (left < right) {
+        const standard = height[right] > height[left] ? height[left] : height[right];
+        const gap = (right - left) * standard;
               
-        height[end] > height[start] ? start++ : end--;
+        height[right] > height[left] ? left++ : right--;
         maxValue = Math.max(maxValue, gap);
     }
     return maxValue;
