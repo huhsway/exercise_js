@@ -36,25 +36,25 @@ class BinarySearchTree {
 
   // tree의 value값 탐색.
   contains(value) {
-    // 찾는 value값이 노드의 value와 일치한다면, true return.
+    // 현재 노드의 값이 찾는 값과 일치하면 true 반환
     if (value === this.value) {
-      return true;
-    }
-    // 찾는 value값이 노드의 value 보다 작다면, 왼쪽에서 contains 재귀 사용.
-    if (value < this.value) {
-			// 현재 노드의 왼쪽이 비어 있지 않고, 노드의 값이 입력값과 일치하면 true return.
-			// 일치하지 않다면 왼쪽 노드로 이동하여 다시 탐색(재귀)
-      return !!(this.left && this.left.contains(value));
+        return true;
     }
 
-    // 찾는 value값이 노드의 value 보다 크다면, 오른쪽에서 contains 재귀 사용.
-    if (value > this.value) {
-			// 현재 노드의 오른쪽이 비어 있지 않고, 노드의 값이 입력값과 일치하면 true return.
-			// 일치하지 않다면 오른쪽 노드로 이동하여 다시 탐색(재귀)
-      return !!(this.right && this.right.contains(value));
+    // 찾는 값이 현재 노드의 값보다 작으면 왼쪽 탐색
+    if (value < this.value && this.left) {
+        return this.left.contains(value);  // `!!` 없이 그대로 반환
     }
-		// 없다면 false return
-  }
+
+    // 찾는 값이 현재 노드의 값보다 크면 오른쪽 탐색
+    if (value > this.value && this.right) {
+        return this.right.contains(value);  // `!!` 없이 그대로 반환
+    }
+
+    // 해당 값이 존재하지 않으면 false 반환
+    return false;
+}
+
 
 	/*
 	트리의 순회
