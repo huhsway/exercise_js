@@ -2,6 +2,9 @@
  * @param {string} s
  * @return {number}
  */
+
+// https://leetcode.com/problems/palindromic-substrings/description/
+
 const countSubstrings = (s) => {
     let count = 0;
     
