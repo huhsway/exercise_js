@@ -7,7 +7,7 @@
 
 // https://leetcode.com/problems/valid-palindrome/
 
-function isPalindrome(s) {
+var isPalindrome = function(s) {
   
     const cleanString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
