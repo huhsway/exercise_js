@@ -5,7 +5,7 @@
 
 // https://leetcode.com/problems/valid-parentheses/ 
 
-const isValid = function(s) {
+var isValid = function(s) {
     // if (s.length % 2 !== 0) return false;
     
     const pairs = {
