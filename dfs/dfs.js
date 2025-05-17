@@ -9,15 +9,17 @@ const graph = [
     [2,6,8],
     [1,7]
 ]
-const visited = Array(9).fill(false)
 
-function dfs(graph, v, visited) {
+const visited = new Array(graph.length).fill(false);
 
-    visited[v] = true
-    console.log(v)
-    for (const i of graph[v]) {
-        if (!visited[i])
+function dfs(graph, start, visited) {
+
+    visited[start] = true;
+    console.log(start);
+    for (const i of graph[start]) {
+        if(!visited[i]) {
             dfs(graph, i, visited)
+        }
     }
 
 }

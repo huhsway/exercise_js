@@ -9,24 +9,26 @@ const graph = [
     [2,6,8],
     [1,7]
 ]
-const visited = Array(9).fill(false)
+
+const visited = new Array(graph.length).fill(false);
 
 function bfs(graph, start, visited) {
 
     const queue = []
-    queue.push(start)
-    visited[start] = true
+    queue.push(start);
+    visited[start] = true;
+    console.log(start);
 
-    while (queue.length) {
+    while(queue.length) {
         const v = queue.shift()
         for (const i of graph[v]) {
             if (!visited[i]) {
+                visited[i] = true;
                 queue.push(i)
-                visited[i] = true
+                console.log(i);
             }
         }
     }
-
 
 }
 

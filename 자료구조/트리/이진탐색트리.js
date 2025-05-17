@@ -1,57 +1,43 @@
 // https://velog.io/@ko9612/JavaScript-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Binary-Search-Tree
 class BinarySearchTree {
   constructor(value) {
-    //BST의 constructor를 구현-> 이진 탐색 트리의 Node.
     this.value = value;
     this.left = null;
     this.right = null;
   }
 
-  // tree에 value 추가(삽입)
   insert(value) {
-    // 인자의 value가 this.value보다 작을 경우, 왼쪽 노드에서 진행.
     if (value < this.value) {
-      // this.left에 아무것도 없을 경우, 새로운 자식 노드를 추가.
       if (this.left === null) {
         this.left = new BinarySearchTree(value);
       } else {
-        // this.left의 자식 노드가 있을 경우, 자식 노드에서 insert 재귀 사용.
         this.left.insert(value);
       }
 
-    // 인자의 value가 this.value보다 클 경우, 오른쪽 노드에서 진행.
     } else if (value > this.value) {
-      // this.right에 아무것도 없을 경우, 새로운 자식 노드를 추가.
       if (this.right === null) {
         this.right = new BinarySearchTree(value);
       } else {
-        // this.right의 자식 노드가 있을 경우, 자식 노드에서 insert 재귀 사용.
         this.right.insert(value);
       }
-		//그것도 아니라면, 입력값이 트리에 들어 있는 경우.
     } else {
       // 이미 value값을 포함하고 있으므로, 아무것도 하지 않는다.
     }
   }
 
-  // tree의 value값 탐색.
   contains(value) {
-    // 현재 노드의 값이 찾는 값과 일치하면 true 반환
     if (value === this.value) {
         return true;
     }
 
-    // 찾는 값이 현재 노드의 값보다 작으면 왼쪽 탐색
     if (value < this.value && this.left) {
-        return this.left.contains(value);  // `!!` 없이 그대로 반환
+        return this.left.contains(value);  
     }
 
-    // 찾는 값이 현재 노드의 값보다 크면 오른쪽 탐색
     if (value > this.value && this.right) {
-        return this.right.contains(value);  // `!!` 없이 그대로 반환
+        return this.right.contains(value);  
     }
 
-    // 해당 값이 존재하지 않으면 false 반환
     return false;
 }
 
