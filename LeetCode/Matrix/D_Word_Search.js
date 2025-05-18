@@ -3,6 +3,9 @@
  * @param {string} word
  * @return {boolean}
  */
+
+// https://leetcode.com/problems/word-search/
+
 var exist = function (board, word) {
     word = word.split("");
     let wordlen = word.length;
