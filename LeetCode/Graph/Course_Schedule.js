@@ -3,6 +3,9 @@
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
+
+// https://leetcode.com/problems/course-schedule
+
 var canFinish = function(numCourses, prerequisites) {
     const inDegree = new Array(numCourses).fill(0);
     for(const pre of prerequisites) {
