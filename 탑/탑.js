@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/2493
+
 let [n, strings] = require('fs').readFileSync(__dirname+'/input.txt').toString().trim().split('\n');
 
 function solution(n, strings) {
