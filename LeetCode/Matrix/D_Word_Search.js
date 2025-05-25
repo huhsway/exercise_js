@@ -3,39 +3,49 @@
  * @param {string} word
  * @return {boolean}
  */
+
+// https://leetcode.com/problems/word-search/
+
 var exist = function (board, word) {
-    word = word.split("");
-    let wordlen = word.length;
-    let dx = [0, 1, 0, -1];
-    let dy = [1, 0, -1, 0];
-  
-    function DFS(L, x, y, board2) {
-      if (L === wordlen) {
-        return true;
-      } else {
+    const m = board.length;
+    const n = board[0].length;
+    const wordLen = word.length;
+    const visited = Array(m).fill(null).map(() => Array(n).fill(false));
+    const dx = [0, 1, 0, -1];
+    const dy = [1, 0, -1, 0];
+
+    function DFS(index, row, col) {
+        if (index === wordLen) {
+            return true;
+        }
+
+        if (row < 0 || row >= m || col < 0 || col >= n || visited[row][col] || board[row][col] !== word[index]) {
+            return false;
+        }
+
+        visited[row][col] = true;
+
         for (let i = 0; i < 4; i++) {
-          let nx = x + dx[i];
-          let ny = y + dy[i];
-          if (nx >= 0 && ny >= 0 && nx < board[0].length && ny < board.length) {
-            if (board2[ny][nx] === word[L]) {
-              board2[ny][nx] = null;
-  
-              if (DFS(L + 1, nx, ny, board2)) return true;
-              board2[ny][nx] = word[L];
+            const newRow = row + dy[i];
+            const newCol = col + dx[i];
+            if (DFS(index + 1, newRow, newCol)) {
+                return true;
             }
-          }
         }
-      }
+
+        visited[row][col] = false; // 백트래킹: 방문 상태 해제
+        return false;
     }
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board[0].length; j++) {
-        if (board[i][j] === word[0]) {
-          board[i][j] = null;
-          if (DFS(1, j, i, board)) return true;
-          board[i][j] = word[0];
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (board[i][j] === word[0]) {
+                if (DFS(0, i, j)) {
+                    return true;
+                }
+            }
         }
-      }
     }
-  
+
     return false;
-  };
+};

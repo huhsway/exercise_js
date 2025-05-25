@@ -13,7 +13,7 @@ var merge = function(intervals) {
     const result = [];
     let previous = intervals[0];
     
-    for (let i = 1; i < intervals.length; i += 1) {
+    for (let i = 1; i < intervals.length; i++) {
       if (previous[1] >= intervals[i][0]) {
         previous = [previous[0], Math.max(previous[1], intervals[i][1])];
       } else {
