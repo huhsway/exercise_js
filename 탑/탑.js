@@ -1,4 +1,10 @@
-let [n, strings] = require('fs').readFileSync(__dirname+'/input.txt').toString().trim().split('\n');
+// https://www.acmicpc.net/problem/2493
+
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : __dirname+'/input.txt';
+let input = fs.readFileSync(filePath).toString().trim().split('\n');
+
+let [n, strings] = input;
 
 function solution(n, strings) {
     const arr = strings.split(' ').map(Number);
